@@ -76,6 +76,9 @@ result['Luxembourg'] = result['Luxembourg'].astype(float)
 
 result = pd.pivot_table(result, values=['Belgique', 'Luxembourg'], index='date',columns='carburants')
 
+result.columns = result.columns.map('_'.join)
+result.rename_axis('date').reset_index()
+
 #On exporte en Json en forçant Unicode
 with open('./result.json', 'w') as output_file:
     result.to_json(output_file, force_ascii=False, orient='records')
