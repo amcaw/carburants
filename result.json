@@ -1,9 +1,9 @@
 [
   {
-    "Belgique_Diesel":2,
-    "Belgique_Essence":1,
-    "Luxembourg_Diesel":3,
-    "Luxembourg_Essence":5,
+    "Belgique_Diesel":"2",
+    "Belgique_Essence":"1",
+    "Luxembourg_Diesel":"3",
+    "Luxembourg_Essence":"5",
     "date":"15 mars"
   }
 ]
