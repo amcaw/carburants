@@ -72,5 +72,5 @@ result['Luxembourg'] = result['Luxembourg'].str.replace(',','.')
 
 
 #On exporte en Json en forçant Unicode
-with open('./result.json', 'w') as output_file:
+with open('./result.json', encoding='utf-8') as output_file:
     result.to_json(output_file, force_ascii=False, orient='records')
