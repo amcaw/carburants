@@ -71,6 +71,10 @@ result['Luxembourg'] = result['Luxembourg'].str.replace(' €/l','')
 result['Luxembourg'] = result['Luxembourg'].str.replace(',','.')
 result['date'] = result['date'].str.replace('March','mars')
 
+result['Belgique'] = result['Belgique'].astype(float)
+result['Luxembourg'] = result['Luxembourg'].astype(float)
+
+result = pd.pivot_table(result, values=['Belgique', 'Luxembourg'], index='date',columns='carburants')
 
 #On exporte en Json en forçant Unicode
 with open('./result.json', 'w') as output_file:
