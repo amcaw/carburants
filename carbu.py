@@ -61,7 +61,7 @@ result = result.rename(columns={'prix_x': 'Belgique', 'prix_y': 'Luxembourg'})
 
 #On ajoute la date du jour
 
-result['date'] = dt.datetime.today().strftime("%d/%m/%Y")
+result['date'] = dt.datetime.today().strftime("%B %e)
 
 #vire euros, espace, virgule
 
@@ -72,5 +72,5 @@ result['Luxembourg'] = result['Luxembourg'].str.replace(',','.')
 
 
 #On exporte en Json en forçant Unicode
-with open('./result.json', encoding='utf-8') as output_file:
+with open('./result.json', 'w') as output_file:
     result.to_json(output_file, force_ascii=False, orient='records')
