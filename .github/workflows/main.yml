@@ -1,7 +1,6 @@
 name: Robot #z
 
 on:
-  push:
   
 jobs:
   build:
