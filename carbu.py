@@ -61,14 +61,15 @@ result = result.rename(columns={'prix_x': 'Belgique', 'prix_y': 'Luxembourg'})
 
 #On ajoute la date du jour
 
-result['date'] = dt.datetime.today().strftime("%B %e)
+result['date'] = dt.datetime.today().strftime("%e %B")
 
-#vire euros, espace, virgule
+#vire euros, espace, virgule, date
 
 result['Belgique'] = result['Belgique'].str.replace(' €/l','')
 result['Belgique'] = result['Belgique'].str.replace(',','.')
 result['Luxembourg'] = result['Luxembourg'].str.replace(' €/l','')
 result['Luxembourg'] = result['Luxembourg'].str.replace(',','.')
+result['date'] = result['date'].str.replace('March','mars')
 
 
 #On exporte en Json en forçant Unicode
