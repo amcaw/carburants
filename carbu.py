@@ -84,4 +84,4 @@ result['date'] = result['date'].str.replace('March','mars')
 
 #On exporte en Json en forçant Unicode
 with open('./result.json', 'w') as output_file:
-    result.to_json(output_file, force_ascii=False, orient='index', indent=2)
+    result.to_json(output_file, force_ascii=False, orient='records', indent=2)
