@@ -1,8 +1,7 @@
 name: Robot data tada
 
 on:
- schedule:
-  - cron: "18 20 * *"
+ push:
   
 jobs:
   build:
