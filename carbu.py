@@ -4,7 +4,7 @@ import datetime as dt
 from bs4 import BeautifulSoup
 import json
 
-#import data
+#import des datas
 
 url_lux = "https://carbu.com/luxembourg//prixmaximum"
 data_lux = requests.get(url_lux).text
