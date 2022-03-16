@@ -1,4 +1,4 @@
-name: Robot #z
+name: Robot qui pompe
 
 on:
   push:
