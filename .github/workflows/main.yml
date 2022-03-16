@@ -1,4 +1,4 @@
-name: Robot qui pompe...
+name: Robot data
 
 on:
   push:
