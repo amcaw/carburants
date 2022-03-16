@@ -4,7 +4,7 @@ import datetime as dt
 from bs4 import BeautifulSoup
 import json
 
-#import des datas
+#import data
 
 url_lux = "https://carbu.com/luxembourg//prixmaximum"
 data_lux = requests.get(url_lux).text
@@ -82,6 +82,9 @@ result['date'] = result['date'].str.replace('March','mars')
 
 result = result.rename(columns={'Belgique_Diesel (B7)': 'Belgique_Diesel', 'Belgique_Super 95 (E10)': 'Belgique_Super_95', 'Luxembourg_Diesel (B7)' : 'Luxembourg_Diesel', 'Luxembourg_Super 95 (E10)' : 'Luxembourg_Super_95' })
 
+#On met les chiffres entre guillemets
+
+result.update('' + result[['Belgique_Diesel', 'Belgique_LPG', 'Belgique_Super_95', 'Luxembourg_Diesel', 'Luxembourg_LPG', 'Luxembourg_Super_95']].astype(str) + '')
 
 #On exporte en Json en forçant Unicode avec un chipotage pour virer les square brackets
 with open('./result.json', 'w') as output_file:
