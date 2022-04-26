@@ -1,4 +1,4 @@
-name: Robot data tada
+name: Robot data
 
 on:
  push:
