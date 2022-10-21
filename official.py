@@ -32,4 +32,8 @@ one_year_ago = (datetime.datetime.now() + datetime.timedelta(days=-361)).strftim
 
 df = df.loc[((df['Date'] == today) | (df['Date'] == tomorrow) | (df['Date'] == one_year_ago) )]
 
+#Reformat date in French
+
+df['Date'] = df['Date'].dt.strftime('%d/%m/%y')
+
 df.to_csv("./official.csv", index=False)
