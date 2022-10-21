@@ -21,8 +21,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           
-      - name: lance calcul
+      - name: lance carbu
         run: python lowest_price.py
+ 
+      - name: lance spf
+        run: python official.py
         
       - name: Commit files
         run: |
