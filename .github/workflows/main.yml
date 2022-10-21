@@ -22,7 +22,7 @@ jobs:
           pip install -r requirements.txt
           
       - name: lance calcul
-        run: python carbu.py
+        run: python lowest_price.py
         
       - name: Commit files
         run: |
