@@ -22,6 +22,10 @@ df['Date'] = df['Date'].replace({'fev':'feb', 'avr':'apr', 'mai':'may', 'aou':'a
 
 df['Date']= pd.to_datetime(df['Date'])
 
+# First export of historical data
+
+df.to_csv('./official_histo.csv')
+
 #Set when is today, tomorrow, one year ago (most ancient date is 364 days ago)
 
 today = datetime.datetime.today().strftime("%Y-%m-%d")
@@ -30,12 +34,10 @@ one_year_ago = (datetime.datetime.now() + datetime.timedelta(days=-364)).strftim
 
 #Filter based on today, tomorrow, one year ago
 
-df_filter = df.loc[((df['Date'] == today) | (df['Date'] == tomorrow) | (df['Date'] == one_year_ago) )]
+df = df.loc[((df['Date'] == today) | (df['Date'] == tomorrow) | (df['Date'] == one_year_ago) )]
 
 #Reformat date in French
 
 df['Date'] = df['Date'].dt.strftime('%d/%m/%y')
-df_filter['Date'] = df['Date'].dt.strftime('%d/%m/%y')
 
-df.to_csv("./official_histo.csv", index=False)
-df_filter.to_csv("./official.csv", index=False)
+df.to_csv("./official.csv", index=False)
