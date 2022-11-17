@@ -25,7 +25,7 @@ for row in table.find_all('tr'):
         E98 = columns[3].text.strip()
         D7 = columns[5].text.strip()
 
-        df = df.append({'Province': Province,  'Super 95 (E10)': E95, 'Super 98 (E5)': E98, 'Diesel (B7)' : D7}, ignore_index=True)
+        df = df.append({'Province': Province,  'E95': E95, 'E98': E98, 'D7' : D7}, ignore_index=True)
 
 # Call base
         
