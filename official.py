@@ -43,6 +43,6 @@ df['Date'] = df['Date'].dt.strftime('%d/%m/%y')
 
 #Add today's date
 
-df['today']= dt.datetime.today().strftime("%d/%m/%Y")
+df['today']= datetime.datetime.today().strftime('%d/%m/%Y %H:%M')
 
 df.to_csv("./official.csv", index=False)
