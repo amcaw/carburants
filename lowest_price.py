@@ -12,7 +12,7 @@ soup = BeautifulSoup(data, 'html.parser')
 table = soup.find('table', class_='table table-bordered')
 
 # Defining of the dataframe
-df = pd.DataFrame(columns=['Province', 'Super 95 (E10)', 'Super 98 (E5)', 'Diesel (B7)'])
+df = pd.DataFrame(columns=['Province', 'E95', 'E98', 'D7'])
 
 # Collecting data
 for row in table.find_all('tr'):    
