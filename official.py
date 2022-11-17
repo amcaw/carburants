@@ -41,4 +41,8 @@ df = df.loc[((df['Date'] == today) | (df['Date'] == tomorrow) )]
 
 df['Date'] = df['Date'].dt.strftime('%d/%m/%y')
 
+#Add today's date
+
+df['today']= datetime.today().strftime('%d/%m/%Y')
+
 df.to_csv("./official.csv", index=False)
