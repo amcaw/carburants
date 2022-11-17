@@ -26,12 +26,6 @@ for row in table.find_all('tr'):
         D7 = columns[5].text.strip()
 
         df = df.append({'Province': Province,  'E95': E95, 'E98': E98, 'D7' : D7}, ignore_index=True)
-        
-# Keep 2 after comma
-
-df["E95"] = df["E95"].map('{:.2f}'.format)
-df["E98"] = df["E98"].map('{:.2f}'.format)
-df["D7"] = df["D7"].map('{:.2f}'.format)
 
 # Call base
         
