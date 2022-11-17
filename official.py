@@ -1,7 +1,6 @@
 import pandas as pd
 from datetime import datetime, timedelta
 import datetime
-from datetime import datetime
 
 #Import data
 
@@ -44,6 +43,6 @@ df['Date'] = df['Date'].dt.strftime('%d/%m/%y')
 
 #Add today's date
 
-df['today']= datetime.today().strftime('%d/%m/%Y')
+df['today']= dt.datetime.today().strftime("%d/%m/%Y")
 
 df.to_csv("./official.csv", index=False)
