@@ -2,6 +2,8 @@ import requests
 import pandas as pd
 from bs4 import BeautifulSoup
 
+# Get page
+
 url = "https://carbu.com/belgique//index.php/meilleurs-prix/Belgique/BE/0"
 data = requests.get(url).text
 
@@ -12,7 +14,7 @@ table = soup.find('table', class_='table table-bordered')
 # Defining of the dataframe
 df = pd.DataFrame(columns=['Province', 'Super 95 (E10)', 'Super 98 (E5)', 'Diesel (B7)'])
 
-# Collecting Ddata
+# Collecting data
 for row in table.find_all('tr'):    
     # Find all data for each column
     columns = row.find_all('td')
@@ -25,4 +27,14 @@ for row in table.find_all('tr'):
 
         df = df.append({'Province': Province,  'Super 95 (E10)': E95, 'Super 98 (E5)': E98, 'Diesel (B7)' : D7}, ignore_index=True)
 
-df.to_csv("./best_carbu.csv", index=False)
+# Call base
+        
+df_base = pd.read_csv('https://raw.githubusercontent.com/amcaw/carburants/main/best_carbu_base.csv')
+
+# Merged base with today's data
+
+df_all = pd.merge(df, df_base, on='Province')
+
+# Export to CSV
+
+df_all.to_csv("./best_carbu.csv", index=False)
