@@ -27,6 +27,10 @@ for row in table.find_all('tr'):
 
         df = df.append({'Province': Province,  'E95': E95, 'E98': E98, 'D7' : D7}, ignore_index=True)
 
+df['E95'] = df['E95'].replace({' €':''}, regex = True)
+df['E98'] = df['E98'].replace({' €':''}, regex = True)
+df['D7'] = df['D7'].replace({' €':''}, regex = True)      
+
 # Call base
         
 df_base = pd.read_csv('https://raw.githubusercontent.com/amcaw/carburants/main/best_carbu_base.csv')
