@@ -24,7 +24,9 @@ df['Date']= pd.to_datetime(df['Date'])
 
 # First export of historical data
 
-df.to_csv('./official_histo.csv')
+df_histo = df.rename(columns={"E95": "Essence 95 RON E10", "E98": "Essence 98 RON E5", "D7": "Diesel B7", "Mazout_moins": "Gasoil chauffage 50S (moins de 2000 l)", "Mazout_plus": "Gasoil chauffage 50S (à partir de 2000 l)"})
+
+df_histo.to_csv('./official_histo.csv')
 
 #Set when is today, tomorrow, one year ago (most ancient date is 364 days ago)
 
