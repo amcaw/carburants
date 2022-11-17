@@ -51,6 +51,6 @@ df["Mazout_plus"] = df["Mazout_plus"].map('{:.2f}'.format)
 
 # Add today's date
 
-df['today']= datetime.datetime.today().strftime('%d/%m/%Y %H:%M')
+df['today']= datetime.datetime.today().strftime('%d/%m/%Y à %H:%M')
 
 df.to_csv("./official.csv", index=False)
