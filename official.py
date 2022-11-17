@@ -32,11 +32,10 @@ df_histo.to_csv('./official_histo.csv')
 
 today = datetime.datetime.today().strftime("%Y-%m-%d")
 tomorrow = (datetime.datetime.now() + datetime.timedelta(days=1)).strftime("%Y-%m-%d")
-one_year_ago = (datetime.datetime.now() + datetime.timedelta(days=-364)).strftime("%Y-%m-%d")
 
 #Filter based on today, tomorrow, one year ago
 
-df = df.loc[((df['Date'] == today) | (df['Date'] == tomorrow) | (df['Date'] == one_year_ago) )]
+df = df.loc[((df['Date'] == today) | (df['Date'] == tomorrow) )]
 
 #Reformat date in French
 
