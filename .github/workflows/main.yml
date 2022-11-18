@@ -1,7 +1,8 @@
 name: Robot data
 
 on:
- push:
+ schedule:
+    - cron: "05 10 * * *"
   
 jobs:
   build:
