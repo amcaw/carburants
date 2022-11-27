@@ -2,7 +2,7 @@ name: Robot datata
 
 on:
  schedule:
-  - cron: "0 10 * * *"
+  - cron: "0 09 * * *"
   
 jobs:
   build:
