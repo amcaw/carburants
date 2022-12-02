@@ -1,8 +1,9 @@
 name: Robot datata
 
 on:
- schedule:
-  - cron: "0 09 * * *"
+ push:
+ #schedule:
+  #- cron: "0 09 * * *"
   
 jobs:
   build:
@@ -20,7 +21,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.7.7'
+          python-version: '3.11.0'
           
       - name: install python packages
         run: |
