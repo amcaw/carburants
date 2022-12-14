@@ -1,0 +1,39 @@
+name: Robot datata
+
+on:
+ schedule:
+  - cron: "0 10 * * *"
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    
+      - name: Set Timezone
+        uses: szenius/set-timezone@v1.0
+        with:
+          timezoneLinux: "Europe/Paris"
+
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content to github runnerzz
+
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11.0'
+          
+      - name: install python packages
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          
+      - name: lance spf
+        run: python official.py
+
+      - name: Commit files
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add --all
+          git commit -am "add data"
+          git push
