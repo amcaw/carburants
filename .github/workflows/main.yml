@@ -30,10 +30,7 @@ jobs:
           
       - name: lance carbu
         run: python lowest_price.py
- 
-      - name: lance spf
-        run: python official.py
-        
+
       - name: Commit files
         run: |
           git config --local user.email "actions@github.com"
